@@ -20,7 +20,7 @@ from datetime import timedelta
 import pyes
 
 
-__version__ = '0.2.2'
+__version__ = '0.2.3'
 
 
 def make_parser():
@@ -149,7 +149,7 @@ def main():
 
         logger.info('Deleting index {0} because it was {1} older than cutoff.'.format(index_name, expiration))
 
-        deletion = connection.delete_index_if_exists(index_name)
+        deletion = connection.indices.delete_index_if_exists(index_name)
         # ES returns a dict on the format {u'acknowledged': True, u'ok': True} on success.
         if deletion.get('ok'):
             logger.info('Successfully deleted index: {0}'.format(index_name))
