@@ -20,7 +20,7 @@ from datetime import timedelta
 import pyes
 
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 
 def make_parser():
@@ -70,7 +70,7 @@ def find_expired_indices(connection, days_to_keep, hours_to_keep, separator, pre
     days_cutoff = utc_now_time - days_to_keep * 24 * 60 * 60 if days_to_keep is not None else None
     hours_cutoff = utc_now_time - hours_to_keep * 60 * 60 if hours_to_keep is not None else None
 
-    for index_name in sorted(set(connection.get_indices().keys())):
+    for index_name in sorted(set(connection.indices.get_indices().keys())):
         if not index_name.startswith(prefix):
             logger.info('Skipping index due to missing prefix {0}: {1}'.format(prefix, index_name))
             continue
