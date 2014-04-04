@@ -150,8 +150,10 @@ def main():
         logger.info('Deleting index {0} because it was {1} older than cutoff.'.format(index_name, expiration))
 
         deletion = connection.indices.delete_index_if_exists(index_name)
+        if deletion is None:
+            logger.info('Cannot delete index because it does not exist: {0}'.format(index_name))
         # ES returns a dict on the format {u'acknowledged': True, u'ok': True} on success.
-        if deletion.get('ok'):
+        elif deletion.get('ok'):
             logger.info('Successfully deleted index: {0}'.format(index_name))
         else:
             logger.error('Error deleting index: {0}. ({1})'.format(index_name, deletion))
