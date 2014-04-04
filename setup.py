@@ -39,7 +39,7 @@ install_requires, dependency_links = parse_requirements()
 if __name__ == '__main__':
     setup(
         name="logstash-index-cleaner",
-        version='0.2.3', # change __version__ also
+        version='0.2.4', # change __version__ also
         description="Delete old logstash indices from Elasticsearch",
         long_description=local_file('README.rst'),
         author='Yipit Coders',
