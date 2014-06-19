@@ -1,6 +1,12 @@
 logstash-index-cleaner
 ======================
 
+THIS PROJECT IS DEPRECATED! USE elasticsearch-curator: https://github.com/elasticsearch/curator
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
 Delete logstash indexes older than n days from ElasticSearch.
 
 ::
@@ -41,6 +47,7 @@ This is a fork of https://github.com/crashdump/logstash-elasticsearch-scripts.
 Since ElasticSearch 0.90 all fields are compressed, and some benchmarks show that
 nothing improves optimizing those already compressed indices. That's why this fork
 does not include the original `logstash_index_optimize.py`
+
 
 Optimizations references:
 
